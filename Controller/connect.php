@@ -6,13 +6,13 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'com_ecom');
 $con = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-$con->set_charset("utf8");
+#$con->set_charset("utf8");
 date_default_timezone_set('Asia/Bangkok');
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-function alert_msg($status, $msg = null, $data = [])
+function alert_msgg($status, $msg = null, $data = [])
 {
     return json_encode(
         array(
@@ -24,7 +24,7 @@ function alert_msg($status, $msg = null, $data = [])
     );
 }
 
-function uniqidReal($lenght)
+#function uniqidReal($lenght)
 {
     // uniqid gives 13 chars, but you could adjust it to your needs.
     if (function_exists("random_bytes")) {
@@ -34,5 +34,5 @@ function uniqidReal($lenght)
     } else {
         throw new Exception("no cryptographically secure random function available");
     }
-    return substr(bin2hex($bytes), 0, $lenght);
+    #return substr(bin2hex($bytes), 0, $lenght);
 }
